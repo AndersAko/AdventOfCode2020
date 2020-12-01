@@ -4,8 +4,8 @@ import './App.css';
 
 function App() {
   return (
-    <div className="Day1">
-      <Day day="1"/>
+    <div>
+      { Array(25).fill(0).map( (_,ix) => <Day day={ix+1} key={ix}/> ) }
     </div>
   );
 }

@@ -1,44 +1,46 @@
 import inputData from './input.txt'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
-function solve1(expenses) {
+function solve1(expenses, updateSolution) {
     for (let expense1 of expenses) {
         for (let expense2 of expenses) {
             if (parseInt(expense1) + parseInt(expense2) === 2020) {
-                return parseInt(expense1) * parseInt(expense2);
+                updateSolution(parseInt(expense1) * parseInt(expense2));
+                return expenses;
             }
         }
     }
-    return 'Not found';
+    updateSolution('Not found');
+    return expenses;
 }
 
-function solve2(expenses) {
+function solve2(expenses, updateSolution) {
     for (let expense1 of expenses) {
         for (let expense2 of expenses) {
             for (let expense3 of expenses) {
 
                 if (parseInt(expense1) + parseInt(expense2) + parseInt(expense3) === 2020) {
-                    return parseInt(expense1) * parseInt(expense2) * parseInt(expense3);
+                    updateSolution(parseInt(expense1) * parseInt(expense2) * parseInt(expense3));
+                    return expenses;
                 }
             }
         }
     }
-    return 'Not found';
+    updateSolution('Not found');
+    return expenses;
 }
 
 export default function Day1(props) {
     const [solution1, setSolution1] = useState('Unsolved');
     const [solution2, setSolution2] = useState('Unsolved');
 
-    fetch(inputData)
+    useEffect( () => {
+        fetch(inputData)
         .then(r => r.text())
         .then(t => String(t).split('\n')) 
-        .then(t => setSolution1(solve1(t)));
-
-    fetch(inputData)
-        .then(r => r.text())
-        .then(t => String(t).split('\n')) 
-        .then(t => setSolution2(solve2(t)));
+        .then(t => solve1(t, setSolution1) )
+        .then(t => solve2(t, setSolution2) );
+    }, [solution1, solution2]);
 
     return (
         <div>

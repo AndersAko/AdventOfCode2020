@@ -7,7 +7,16 @@
     position: fixed;
     align-items: center;
     justify-content: center;
-    font-size: calc(2px + 1.5vmin);
+    font-size: calc(4px + 3vmin);
     color: white;
+    z-index:0;
+    display: flex
+}
+
+.Day.active {
+    height: 80vh;
+    width: 80vw; 
+    z-index: 100;
+    background-color: #2e110a;
 }
 
