@@ -1,11 +1,11 @@
-import Day1 from './day1/day1.js';
+import Day from './Day.js';
 import './App.css';
 
 
 function App() {
   return (
     <div className="Day1">
-      <Day1/>
+      <Day day="1"/>
     </div>
   );
 }

@@ -1,0 +1,13 @@
+.Day {
+    text-align: center;
+    background-color: #ba170b;
+    border: 2px;
+    height: 10vh;
+    width: 10vw;  
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(2px + 1.5vmin);
+    color: white;
+}
+
