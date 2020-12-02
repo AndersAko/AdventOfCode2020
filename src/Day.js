@@ -4,35 +4,62 @@ import Day2 from './day2/day2.js';
 import './Day.css';
 
 export default function Day(props) {
-  const [active, setActive] = useState(false);
+  const states = {
+    idle: 'idle',
+    active: 'active',
+    expanded: 'expanded'
+  };
+  const [state, setState] = useState(states.idle);
 
-  let position = parseInt(props.day) - 1;
-  let top = Math.floor(position / 7) * 20 + 15;
-  let left = (position % 7) * 12 + 8;
-  var DayComponent;
+  var dayComponent;
   switch (props.day) {
     case 1:
-      DayComponent = <Day1 />;
+      dayComponent = <Day1 />;
       break;
     case 2:
-      DayComponent = <Day2 />;
+      dayComponent = <Day2 />;
       break;
     default:
-      DayComponent = <>Not defined yet</>
+      dayComponent = <div>Not defined yet</div>
   }
-  if (active) {
-    return (
-      <div className="Day active" style={{ top: '10vh', left: '10vw' }} 
-        // onClick={() => setActive(false)}
-         >
-        {DayComponent}
-      </div>
-    );
-  } else {
-    return (
-      <div className="Day" style={{ top: top + 'vh', left: left + 'vw' }} onClick={() => setActive(true)} >
-        Day {props.day}
-      </div>
-    );
+
+  let top, left; 
+  switch (state) {
+    case states.idle:
+    case states.active:
+      let position = parseInt(props.day) - 1;
+      top = Math.floor(position / 7) * 20 + 15;
+      left = (position % 7) * 12 + 8;
+      break;
+    case states.expanded:
+      top = 10;
+      left = 10;
+      break;
+    default:
+      top = 0; left=0;
   }
+
+  switch (state) {
+    case states.idle:
+      return (
+        <div className="Day" style={{ top: top + 'vh', left: left + 'vw' }} onClick={() => setState(states.active)} >
+          Day {props.day}
+        </div>
+      );
+    case states.active:
+        return (
+        <div className="Day" style={{ top: top + 'vh', left: left + 'vw' }} onClick={() => setState(states.expanded)}  >
+          <dayComponent.type state={state}/>
+        </div>
+      );
+    case states.expanded:
+        return (
+        <div className="Day expanded" style={{ top: top + 'vh', left: left + 'vw' }}  >
+          <dayComponent.type state={state}/>
+          <button type="button" onClick={() => setState(states.idle)}>Close</button>  
+        </div>
+      );
+    default:
+      return null;
+    }
 }

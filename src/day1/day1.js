@@ -1,36 +1,37 @@
 import inputData from './input.txt'
 import React, {useState, useEffect} from 'react'
 
-function solve1(expenses, updateSolution) {
-    for (let expense1 of expenses) {
-        for (let expense2 of expenses) {
-            if (parseInt(expense1) + parseInt(expense2) === 2020) {
-                updateSolution(parseInt(expense1) * parseInt(expense2));
-                return expenses;
-            }
-        }
-    }
-    updateSolution('Not found');
-    return expenses;
-}
 
-function solve2(expenses, updateSolution) {
-    for (let expense1 of expenses) {
-        for (let expense2 of expenses) {
-            for (let expense3 of expenses) {
-
-                if (parseInt(expense1) + parseInt(expense2) + parseInt(expense3) === 2020) {
-                    updateSolution(parseInt(expense1) * parseInt(expense2) * parseInt(expense3));
+export default function Day1(props) {
+    function solve1(expenses) {
+        for (let expense1 of expenses) {
+            for (let expense2 of expenses) {
+                if (parseInt(expense1) + parseInt(expense2) === 2020) {
+                    setSolution1(parseInt(expense1) * parseInt(expense2));
                     return expenses;
                 }
             }
         }
+        setSolution1('Not found');
+        return expenses;
     }
-    updateSolution('Not found');
-    return expenses;
-}
+    
+    function solve2(expenses) {
+        for (let expense1 of expenses) {
+            for (let expense2 of expenses) {
+                for (let expense3 of expenses) {
+    
+                    if (parseInt(expense1) + parseInt(expense2) + parseInt(expense3) === 2020) {
+                        setSolution2(parseInt(expense1) * parseInt(expense2) * parseInt(expense3));
+                        return expenses;
+                    }
+                }
+            }
+        }
+        setSolution2('Not found');
+        return expenses;
+    }
 
-export default function Day1(props) {
     const [solution1, setSolution1] = useState('Unsolved');
     const [solution2, setSolution2] = useState('Unsolved');
 
@@ -38,8 +39,8 @@ export default function Day1(props) {
         fetch(inputData)
         .then(r => r.text())
         .then(t => String(t).split('\n')) 
-        .then(t => solve1(t, setSolution1) )
-        .then(t => solve2(t, setSolution2) );
+        .then(t => solve1(t) )
+        .then(t => solve2(t) );
     }, [solution1, solution2]);
 
     return (

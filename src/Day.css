@@ -7,16 +7,27 @@
     position: fixed;
     align-items: center;
     justify-content: center;
-    font-size: calc(4px + 3vmin);
+    font-size: calc(4px + 1vmin);
     color: white;
     z-index:0;
     display: flex
 }
 
-.Day.active {
+.Day.expanded {
     height: 80vh;
     width: 80vw; 
     z-index: 100;
     background-color: #2e110a;
+    font-size: calc(4px + 3vmin);
+}
+
+.Day.expanded button {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    background-color: #411d14;
+    color: antiquewhite;
+    border: rgb(163, 142, 123);
+    border-radius: 8px;
 }
 
