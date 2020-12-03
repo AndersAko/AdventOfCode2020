@@ -31,3 +31,32 @@
     border-radius: 8px;
 }
 
+.sidepanel {
+  width: 70%;
+  height: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 1vh;
+  resize: none;
+  overflow-x: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #2e110a;
+  color: antiquewhite;
+}
+
+.solution {
+    height: 100%;
+    width: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flexbox;
+}
+
+.Day.expanded .solution {
+    width: 40%; 
+}

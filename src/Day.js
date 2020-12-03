@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Day1 from './day1/day1.js';
 import Day2 from './day2/day2.js';
+import Day3 from './day3/day3.js';
 import './Day.css';
 
 export default function Day(props) {
@@ -18,6 +19,9 @@ export default function Day(props) {
       break;
     case 2:
       dayComponent = <Day2 />;
+      break;
+    case 3:
+      dayComponent = <Day3 />;
       break;
     default:
       dayComponent = <div>Not defined yet</div>
