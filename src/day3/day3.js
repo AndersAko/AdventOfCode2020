@@ -5,7 +5,7 @@ import React, {useState, useEffect} from 'react'
 export default function Day3(props) {
     const [solution1, setSolution1] = useState('Unsolved');
     const [solution2, setSolution2] = useState('Unsolved');
-    const [sidePanel, setSidePanel] = useState('SIDE PANEL');
+    const [sidePanel, setSidePanel] = useState('');
 
     useEffect( () => {
         function treecount(trees, right, down) {
@@ -13,24 +13,23 @@ export default function Day3(props) {
             let count = 0;
             for (let rowcount = 0; rowcount<trees.length; rowcount+=down) {
                 let row = trees[rowcount];
-                let treeRow = Array(row.length * Math.floor(x/row.length)).fill(' ').concat(Array.from(row));
+                let treeRow = Array(row.length * Math.floor(x/row.length)).fill('_').concat(Array.from(row));
                 if (row[x % row.length] === '#') {
                     treeRow.splice(x, 1,'X');
                     count++;
                 } else {
                     treeRow.splice(x, 1,'O');
                 }
-                log(rowcount, treeRow.join(''));
+                // log(rowcount, treeRow.join(''));
                 x +=right;
             }
             return count;
         }
       
-        function log(...message) {
-            let id = Math.random();
-            sidePanelText = sidePanelText.concat('\n', ...message);
-            setSidePanel(sidePanelText);
-        }
+        // function log(...message) {
+        //     sidePanelText = sidePanelText.concat('\n', ...message);
+        //     setSidePanel(sidePanelText);
+        // }
 
         function solve1(trees) {
             console.log('Solve 1');
