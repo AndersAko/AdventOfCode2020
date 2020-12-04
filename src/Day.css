@@ -54,7 +54,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .Day.expanded .solution {

@@ -1,4 +1,4 @@
-import inputData from './input.txt'
+import inputData from './input1.txt'
 import React, {useState, useEffect} from 'react'
 
 
@@ -13,12 +13,24 @@ export default function Day4(props) {
         //     setSidePanel(sidePanelText);
         // }
 
-        function solve1(trees) {
+        function solve1(lines) {
             console.log('Solve 1');
+            let passport = [];
+            for(let line of lines) {
+                if (line ==='') {
+                    console.log('Checking passport: ', passport);
+                    passport=[];
+                } else {
+                    let re = /(\w+):\w+/;
+                    let fields = line.split(' ').map(f => re.exec(f)[1]);
+                    passport.concat(fields);
+                }
+            }
+
             // setSolution1(count);
         }
 
-        function solve2(trees) {
+        function solve2(lines) {
             console.log('Solve 2');
             // setSolution2(answer);
         }
@@ -39,10 +51,13 @@ export default function Day4(props) {
     return (
         <div>
             <div className='solution' >
-                <b>Day 4</b><br/>
-                Part 1: {solution1}
-                <br/>
-                Part 2: {solution2}
+                <div>
+                    <b>Day 4</b>
+                    <br/>
+                    Part 1: {solution1}
+                    <br/>
+                    Part 2: {solution2}
+                </div>
             </div>
             {props.state ==='expanded' && (
                 <textarea className='sidepanel' value={sidePanel} readOnly={true} />
