@@ -1,0 +1,25 @@
+pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:2002 hcl:#623a2f
+
+pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:2003 hcl:#623a2f
+
+pid:087499704 hgt:60in ecl:grn iyr:2012 eyr:2030 byr:1980 hcl:#623a2f
+
+pid:087499704 hgt:190cm ecl:grn iyr:2012 eyr:2030 byr:1980 hcl:#623a2f
+
+pid:087499704 hgt:190in ecl:grn iyr:2012 eyr:2030 byr:1980 hcl:#623a2f
+
+pid:087499704 hgt:190 ecl:grn iyr:2012 eyr:2030 byr:1980 hcl:#623a2f
+
+pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980 hcl:#123abc
+
+pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980 hcl:#123abz
+
+pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980 hcl:123abc
+
+pid:087499704 hgt:74in ecl:brn iyr:2012 eyr:2030 byr:1980 hcl:#623a2f
+
+pid:087499704 hgt:74in ecl:wat iyr:2012 eyr:2030 byr:1980 hcl:#623a2f
+
+pid:000000001 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980 hcl:#623a2f
+
+pid:0123456789 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980 hcl:#623a2f

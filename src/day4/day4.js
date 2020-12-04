@@ -1,12 +1,11 @@
-import inputData from './input1.txt'
+import inputData from './input.txt'
 import React, {useState, useEffect} from 'react'
 
 
 export default function Day4(props) {
     const [solution1, setSolution1] = useState('Unsolved');
     const [solution2, setSolution2] = useState('Unsolved');
-    const [sidePanel, setSidePanel] = useState('');
-
+    
     useEffect( () => {
         // function log(...message) {
         //     sidePanelText = sidePanelText.concat('\n', ...message);
@@ -16,26 +15,99 @@ export default function Day4(props) {
         function solve1(lines) {
             console.log('Solve 1');
             let passport = [];
+            let count = 0;
             for(let line of lines) {
-                if (line ==='') {
-                    console.log('Checking passport: ', passport);
-                    passport=[];
+                let re = /(?<fld>\w+):(.+)/;
+                let fields = line.split(' ').map(f => f.match(re)?.groups["fld"]).filter(f=> !!f);
+                // console.log('Line: ', line, 'Fields: ', fields);
+                if (fields && fields.length>0) {
+                    passport = passport.concat(fields);
                 } else {
-                    let re = /(\w+):\w+/;
-                    let fields = line.split(' ').map(f => re.exec(f)[1]);
-                    passport.concat(fields);
+                    let myPassport = passport;
+                    let requiredFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
+                    if (requiredFields.every(f => myPassport.includes(f))) {
+                        count ++;
+                    }
+                    passport=[];
                 }
             }
-
-            // setSolution1(count);
+            setSolution1(count);
         }
 
         function solve2(lines) {
             console.log('Solve 2');
-            // setSolution2(answer);
-        }
+            let passport = [];
+            let count = 0;
+            for(let line of lines) {
+                let re = /(?<fld>\w+):(?<value>.+)/;
+                let fields = line.split(' ')
+                    .map(f => f.match(re)?.groups).filter(f=> f && f['fld']);
+                // console.log('Line: ', line, 'Fields: ', fields);
+                if (fields && fields.length>0) {
+                    passport = passport.concat(fields);
+                } else {
+                    if (isValid(passport)) {
+                        // console.log('OK');
+                        count++;
+                    } else {
+                        // console.log('Not OK');
+                    }
+                    passport=[];
+                }
+            }
+            setSolution2(count);
 
-        let sidePanelText = '';
+            function isValid(passport) {
+                // console.log('Checking passport: ', passport);
+                let requiredFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
+                if (!requiredFields.every(rf => passport.find(f => f['fld'] && f['fld'] === rf))) {
+                    return false;
+                }
+                for (let field of passport) {
+                    let value = field['value'];
+                    switch (field['fld']) {
+                        case 'byr':
+                            if (value.length !== 4) return false;
+                            if (!parseInt(value) || parseInt(value) < 1920 || parseInt(value) > 2002) {
+                                return false;
+                            }
+                            break;
+                        case 'iyr':
+                            if (value.length !== 4) return false;
+                            if (!parseInt(value) || parseInt(value) < 2010 || parseInt(value) > 2020) {
+                                return false;
+                            }
+                            break;
+                        case 'eyr':
+                            if (value.length !== 4) return false;
+                            if (!parseInt(value) || parseInt(value) < 2020 || parseInt(value) > 2030) {
+                                return false;
+                            }
+                            break;
+                        case 'hgt':
+                            let m = value.match(/(\d+)(in|cm)/);
+                            if (!m || !m[1] || !parseInt(m[1]) ) return false;
+                            if (m[2] === 'in' && (parseInt(m[1]) < 59 || parseInt(m[1]) > 76) ) return false; 
+                            if (m[2] === 'cm' && (parseInt(m[1]) < 150 || parseInt(m[1]) > 193) ) return false; 
+                            break;
+                        case 'hcl':
+                            if (!value.match(/#[0-9a-f]{6}/) ) return false;
+                            break;
+                        case 'ecl':
+                            if (value.length !== 3 || !['amb','blu','brn','gry','grn','hzl','oth'].includes(value)) return false;
+                            break;
+                        case 'pid':
+                            if (!value.match(/^[0-9]{9}$/) ) return false;
+                            break;
+                        case 'cid':
+                            break;
+                        default:
+                            console.log('Missing case', field['fld']);
+                    }
+                }
+                return true;
+            }
+        }
 
         fetch(inputData)
         .then(r => r.text())
@@ -60,7 +132,7 @@ export default function Day4(props) {
                 </div>
             </div>
             {props.state ==='expanded' && (
-                <textarea className='sidepanel' value={sidePanel} readOnly={true} />
+                <textarea className='sidepanel' value={''} readOnly={true} />
             )}
         </div>
     )

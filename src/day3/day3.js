@@ -60,10 +60,12 @@ export default function Day3(props) {
     return (
         <div>
             <div className='solution' >
-                <b>Day 3</b><br/>
-                Part 1: {solution1}
-                <br/>
-                Part 2: {solution2}
+                <div>
+                    <b>Day 3</b><br/>
+                    Part 1: {solution1}
+                    <br/>
+                    Part 2: {solution2}
+                </div>
             </div>
             {props.state ==='expanded' && (
                 <textarea className='sidepanel' value={sidePanel} readOnly={true} />

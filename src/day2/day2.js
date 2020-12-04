@@ -8,7 +8,6 @@ export default function Day2(props) {
         
         let count = 0;
         for (let word of passwords) {
-            console.log(word);
             let re = /(\d+)-(\d+) (\w): (\w+)/g
             let match = re.exec(word);
             //
@@ -23,10 +22,8 @@ export default function Day2(props) {
                 }
             }
             if (lettercount >= min && lettercount <= max) {
-                console.log('Match found:', word, min, max, letter);
                 count++;
             } else {
-                console.log('Invalid password:', word, min, max, letter);
             }
         }
         setSolution1(count);
@@ -38,7 +35,6 @@ export default function Day2(props) {
         
         let count = 0;
         for (let word of passwords) {
-            console.log(word);
             let re = /(\d+)-(\d+) (\w): (\w+)/g
             let match = re.exec(word);
             let first = parseInt(match[1]);
@@ -46,7 +42,6 @@ export default function Day2(props) {
             let letter = match[3];
             let password = match[4];
             if ( (password[first-1]===letter) !== (password[second-1]===letter)) {
-                console.log('Valid password', word, first, second, letter);
                 count++;
             }
         }
