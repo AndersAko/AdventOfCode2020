@@ -4,6 +4,7 @@ import Day2 from './day2/day2.js';
 import Day3 from './day3/day3.js';
 import Day4 from './day4/day4.js';
 import Day5 from './day5/day5.js';
+import Day6 from './day6/day6.js';
 import './Day.css';
 
 export default function Day(props) {
@@ -31,6 +32,9 @@ export default function Day(props) {
     case 5:
       dayComponent = <Day5 />;
       break;
+    case 6:
+      dayComponent = <Day6 />;
+      break;
     default:
       dayComponent = <div>Not defined yet</div>
   }
@@ -56,12 +60,16 @@ export default function Day(props) {
       return (
         <div className="Day" style={{ top: top + 'vh', left: left + 'vw' }} onClick={() => setState(states.active)} >
           Day {props.day}
+          <div className="door left" key="doorleft">{props.day}</div>
+          <div className="door right" key="doorright"/>
         </div>
       );
     case states.active:
         return (
         <div className="Day" style={{ top: top + 'vh', left: left + 'vw' }} onClick={() => setState(states.expanded)}  >
           <dayComponent.type state={state}/>
+          <div className="door left open" key="doorleft"/>
+          <div className="door right open" key="doorright"/>
         </div>
       );
     case states.expanded:

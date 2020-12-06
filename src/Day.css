@@ -1,16 +1,17 @@
 .Day {
     text-align: center;
     background-color: #ba170b;
-    border: 2px;
+    border: 2px solid antiquewhite;
     height: 10vh;
-    width: 10vw;  
+    width: 8vw;  
     position: fixed;
     align-items: center;
     justify-content: center;
     font-size: calc(4px + 1vmin);
     color: white;
     z-index:0;
-    display: flex
+    display: flex;
+    transition: all 1   s;
 }
 
 .Day.expanded {
@@ -30,6 +31,41 @@
     border: rgb(163, 142, 123);
     border-radius: 8px;
 }
+
+.door {
+    height: 100%;
+    width: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:  #ba170b;
+    transition: all 2s;
+    z-index:-1;
+    border: 1px solid antiquewhite;
+}
+
+.door.left {
+    width: 50%;
+    left: 0;
+    z-index: 0;
+    transform-origin: left;
+}
+
+.door.right {
+    width: 50%;
+    left: 50%;
+    z-index: 0;
+    transform-origin: right;
+}
+
+.door.open.left {
+    transform: perspective(500px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg);
+}
+
+.door.open.right {
+    transform: perspective(500px) translateZ(0px) translateX(0px) translateY(0px) rotateY(105deg);
+}
+
 
 .sidepanel {
   width: 65%;
