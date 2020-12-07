@@ -5,6 +5,7 @@ import Day3 from './day3/day3.js';
 import Day4 from './day4/day4.js';
 import Day5 from './day5/day5.js';
 import Day6 from './day6/day6.js';
+import Day7 from './day7/day7.js';
 import './Day.css';
 
 export default function Day(props) {
@@ -35,6 +36,9 @@ export default function Day(props) {
     case 6:
       dayComponent = <Day6 />;
       break;
+    case 7:
+      dayComponent = <Day7 />;
+      break;
     default:
       dayComponent = <div>Not defined yet</div>
   }
@@ -61,20 +65,20 @@ export default function Day(props) {
         <div className="Day" style={{ top: top + 'vh', left: left + 'vw' }} onClick={() => setState(states.active)} >
           Day {props.day}
           <div className="door left" key="doorleft">{props.day}</div>
-          <div className="door right" key="doorright"/>
+          <div className="door right" key="doorright">Dec</div>
         </div>
       );
     case states.active:
         return (
         <div className="Day" style={{ top: top + 'vh', left: left + 'vw' }} onClick={() => setState(states.expanded)}  >
           <dayComponent.type state={state}/>
-          <div className="door left open" key="doorleft"/>
-          <div className="door right open" key="doorright"/>
+          <div className="door left open" key="doorleft">{props.day}</div>
+          <div className="door right open" key="doorright">Dec</div>
         </div>
       );
     case states.expanded:
         return (
-        <div className="Day expanded" style={{ top: top + 'vh', left: left + 'vw' }}  >
+        <div className="Day expanded" style={{ top: top + 'vh', left: left + 'vw' }} >
           <dayComponent.type state={state}/>
           <button type="button" onClick={() => setState(states.idle)}>Close</button>  
         </div>

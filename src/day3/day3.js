@@ -5,8 +5,7 @@ import React, {useState, useEffect} from 'react'
 export default function Day3(props) {
     const [solution1, setSolution1] = useState('Unsolved');
     const [solution2, setSolution2] = useState('Unsolved');
-    const [sidePanel, setSidePanel] = useState('');
-
+    
     useEffect( () => {
         function treecount(trees, right, down) {
             let x = 0;
@@ -26,11 +25,6 @@ export default function Day3(props) {
             return count;
         }
       
-        // function log(...message) {
-        //     sidePanelText = sidePanelText.concat('\n', ...message);
-        //     setSidePanel(sidePanelText);
-        // }
-
         function solve1(trees) {
             console.log('Solve 1');
             let count = treecount(trees, 3, 1);
@@ -43,8 +37,6 @@ export default function Day3(props) {
                 treecount(trees, 7, 1) * treecount(trees, 1, 2);
             setSolution2(answer);
         }
-
-        let sidePanelText = '';
 
         fetch(inputData)
         .then(r => r.text())
@@ -68,7 +60,7 @@ export default function Day3(props) {
                 </div>
             </div>
             {props.state ==='expanded' && (
-                <textarea className='sidepanel' value={sidePanel} readOnly={true} />
+                <textarea className='sidepanel' value={''} readOnly={true} />
             )}
         </div>
     )

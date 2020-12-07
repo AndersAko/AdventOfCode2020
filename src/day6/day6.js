@@ -30,7 +30,8 @@ export default function Day6(props) {
                         // Check groupAnswersAllYes, remove any missing in answers
                         groupAnswersAllYes = new Set([...groupAnswersAllYes].filter(a => answers.includes(a)));
                         // Add answers to groupAnswers
-                        answers.forEach(answer => groupAnswers.add(answer));
+                        groupAnswers = new Set([...groupAnswers].concat(answers));
+                        // answers.forEach(answer => groupAnswers.add(answer));
                     }
                 } else {
                     console.log('Group answers:', groupAnswers, groupAnswers.size);

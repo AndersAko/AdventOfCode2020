@@ -11,7 +11,7 @@
     color: white;
     z-index:0;
     display: flex;
-    transition: all 1   s;
+    transition: all 1s;
 }
 
 .Day.expanded {
@@ -42,6 +42,14 @@
     transition: all 2s;
     z-index:-1;
     border: 1px solid antiquewhite;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: white;
+    z-index:0;
+    display: flex;
+    transition: all 1s;
 }
 
 .door.left {
@@ -59,13 +67,14 @@
 }
 
 .door.open.left {
+    border: none;
     transform: perspective(500px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg);
 }
 
 .door.open.right {
+    border: none;
     transform: perspective(500px) translateZ(0px) translateX(0px) translateY(0px) rotateY(105deg);
 }
-
 
 .sidepanel {
   width: 65%;
