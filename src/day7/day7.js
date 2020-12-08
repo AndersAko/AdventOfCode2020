@@ -84,7 +84,7 @@ export default function Day7(props) {
                 </div>
             </div>
             {props.state ==='expanded' && (
-                <textarea className='sidepanel' value={''} readOnly={true} />
+                <div className='sidepanel' value={''} readOnly={true} />
             )}
         </div>
     )

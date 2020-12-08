@@ -6,6 +6,7 @@ import Day4 from './day4/day4.js';
 import Day5 from './day5/day5.js';
 import Day6 from './day6/day6.js';
 import Day7 from './day7/day7.js';
+import Day8 from './day8/day8.js';
 import './Day.css';
 
 export default function Day(props) {
@@ -38,6 +39,9 @@ export default function Day(props) {
       break;
     case 7:
       dayComponent = <Day7 />;
+      break;
+    case 8:
+      dayComponent = <Day8 />;
       break;
     default:
       dayComponent = <div>Not defined yet</div>
