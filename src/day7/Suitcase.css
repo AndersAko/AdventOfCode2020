@@ -1,0 +1,66 @@
+.Suitcase {
+    position: fixed;
+    height: 20vmin;
+    width: 20vmin;
+    top: 50%;
+    left: 50%;
+    perspective: 1000px;
+    perspective-origin: 300% -400%;
+    font-size: 2em;
+}
+
+.face {
+    display: block;
+    background-color: #b9a358;
+    position: absolute;
+}
+
+.front {
+    height: 3em;
+    width: 10em;
+    bottom: 0;
+}
+
+.right {
+    height: 3em;
+    width: 6em;
+    bottom: 0;
+    left: 10em;
+    transform: rotateY(90deg);
+    transform-origin: left;
+}
+
+.left {
+    height: 3em;
+    width: 6em;
+    bottom: 0;
+    right: 10em;
+    transform: rotateY(-90deg);
+    transform-origin: right;
+}
+
+.bottom {
+    height: 6em;
+    width: 10em;
+    bottom: 0;
+    left: 0;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+}
+
+.back {
+    height: 3em;
+    width: 10em;
+    bottom: 0;
+    left: 0;
+    transform: translateZ(-6em);
+}
+
+.lid {
+    height: 6em;
+    width: 10em;
+    bottom: 3em;
+    left: 0;
+    transform: translateZ(-6em) rotateX(-90deg) ;
+    transform-origin: bottom;
+}

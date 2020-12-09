@@ -1,6 +1,6 @@
-import inputData from './input.txt'
-import React, {useState, useEffect} from 'react'
-
+import inputData from './input.txt';
+import React, {useState, useEffect} from 'react';
+import Suitcase from './Suitcase';
 
 export default function Day7(props) {
     const [solution1, setSolution1] = useState('Unsolved');
@@ -84,7 +84,9 @@ export default function Day7(props) {
                 </div>
             </div>
             {props.state ==='expanded' && (
-                <div className='sidepanel' value={''} readOnly={true} />
+                <div className='sidepanel' >
+                    <Suitcase />
+                </div>
             )}
         </div>
     )
