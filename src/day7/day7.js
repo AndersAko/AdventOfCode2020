@@ -40,7 +40,7 @@ export default function Day7(props) {
                         InnerBagRules[outerbagDescr] = [{descr: innerBagDescr, num: innerBagNum}];
                     }
                     
-                    console.log("RULE: " + outerbagDescr + " contains " + innerBagNum, innerBagDescr);
+                    // console.log("RULE: " + outerbagDescr + " contains " + innerBagNum, innerBagDescr);
                 }
             }
             // Until no parents: Get outer bags of "shiny gold"; Get outer bags of these

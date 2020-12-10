@@ -5,23 +5,26 @@
     top: 50%;
     left: 50%;
     perspective: 1000px;
-    perspective-origin: 300% -400%;
-    font-size: 2em;
+    perspective-origin: 400% -300%;
+    font-size: 2vmin;
+    transform-style: preserve-3d;
 }
 
-.face {
+.Suitcase .face {
     display: block;
     background-color: #b9a358;
     position: absolute;
+    border: 1px solid antiquewhite;
+    border-radius: 10px;
 }
 
-.front {
+.Suitcase .front {
     height: 3em;
     width: 10em;
     bottom: 0;
 }
 
-.right {
+.Suitcase .right {
     height: 3em;
     width: 6em;
     bottom: 0;
@@ -30,7 +33,7 @@
     transform-origin: left;
 }
 
-.left {
+.Suitcase .left {
     height: 3em;
     width: 6em;
     bottom: 0;
@@ -39,7 +42,7 @@
     transform-origin: right;
 }
 
-.bottom {
+.Suitcase .bottom {
     height: 6em;
     width: 10em;
     bottom: 0;
@@ -48,7 +51,7 @@
     transform-origin: bottom;
 }
 
-.back {
+.Suitcase .back {
     height: 3em;
     width: 10em;
     bottom: 0;
@@ -56,11 +59,53 @@
     transform: translateZ(-6em);
 }
 
-.lid {
+.Suitcase .fulllid {
+    bottom: 3em;
+    width: 10em;
+    height: 6em;
+    transform-origin: bottom;
+    /* display: block; */
+    position: absolute; 
+    transform-style: preserve-3d;
+}
+
+.Suitcase .lid {
     height: 6em;
     width: 10em;
-    bottom: 3em;
+    bottom: 1em;
     left: 0;
     transform: translateZ(-6em) rotateX(-90deg) ;
     transform-origin: bottom;
+}
+
+.Suitcase .lidfront {
+    height: 1em;
+    width: 10em;
+    bottom: 0em;
+}
+
+.Suitcase .lidright {
+    height: 1em;
+    width: 6em;
+    bottom: 0em;
+    left: 10em;
+    transform: rotateY(90deg);
+    transform-origin: left;
+}
+
+.Suitcase .lidleft {
+    height: 1em;
+    width: 6em;
+    bottom: 0em;
+    right: 10em;
+    transform: rotateY(-90deg);
+    transform-origin: right;
+}
+
+.Suitcase .lidback {
+    height: 1em;
+    width: 10em;
+    bottom: 0em;
+    left: 0;
+    transform: translateZ(-6em);
 }
