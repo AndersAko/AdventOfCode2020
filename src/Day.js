@@ -80,6 +80,8 @@ export default function Day(props) {
       return (
         <div className="Day" style={{ top: top + 'vh', left: left + 'vw' }} onClick={() => setState(states.active)} >
           Day {props.day}
+          <div className='door left back' key='doorleftback' />
+          <div className='door right back' key='doorrightback' />
           <div className="door left" key="doorleft">{props.day}</div>
           <div className="door right" key="doorright">Dec</div>
         </div>
@@ -88,6 +90,8 @@ export default function Day(props) {
         return (
         <div className="Day" style={{ top: top + 'vh', left: left + 'vw' }} onClick={() => setState(states.expanded)}  >
           <dayComponent.type state={state}/>
+          <div className='door left back open' key='doorleftback' />
+          <div className='door right back open' key='doorrightback' />
           <div className="door left open" key="doorleft">{props.day}</div>
           <div className="door right open" key="doorright">Dec</div>
         </div>

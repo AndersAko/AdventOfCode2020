@@ -12,6 +12,7 @@
     z-index:0;
     display: flex;
     transition: all 1s;
+    perspective: 500px;
 }
 
 .Day.expanded {
@@ -49,6 +50,7 @@
     z-index:0;
     display: flex;
     transition: all 2s;
+    backface-visibility: hidden;
 }
 
 .door.left {
@@ -65,15 +67,38 @@
     transform-origin: right;
 }
 
-.door.open.left {
+.door.open {
     border: none;
-    transform: perspective(500px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg);
+}
+
+.door.open.left {
+    transform:  rotateY(-105deg);
 }
 
 .door.open.right {
-    border: none;
-    transform: perspective(500px) translateZ(0px) translateX(0px) translateY(0px) rotateY(105deg);
+    transform:  rotateY(105deg);
 }
+
+.door.back {
+    background-color: #2e110a;
+    transform-origin: center;
+    transform: rotateY(-180deg);
+}
+
+.door.left.back {
+}
+.door.right.back {
+}
+
+.door.open.left.back {
+    transform-origin: left;
+    transform: rotateY(-285deg);
+}
+.door.open.right.back {
+    transform-origin: right;
+    transform: rotateY(-75deg);
+}
+
 
 .sidepanel {
   width: 65%;
