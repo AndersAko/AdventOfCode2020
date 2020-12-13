@@ -50,7 +50,7 @@
     z-index:0;
     display: flex;
     transition: all 2s;
-    backface-visibility: hidden;
+    /* backface-visibility: hidden; */
 }
 
 .door.left {
