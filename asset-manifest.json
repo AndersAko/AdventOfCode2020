@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/AdventOfCode2020/static/css/main.23402394.chunk.css",
-    "main.js": "/AdventOfCode2020/static/js/main.37a0f3cc.chunk.js",
-    "main.js.map": "/AdventOfCode2020/static/js/main.37a0f3cc.chunk.js.map",
+    "main.js": "/AdventOfCode2020/static/js/main.8f2f12c9.chunk.js",
+    "main.js.map": "/AdventOfCode2020/static/js/main.8f2f12c9.chunk.js.map",
     "runtime-main.js": "/AdventOfCode2020/static/js/runtime-main.c8be9113.js",
     "runtime-main.js.map": "/AdventOfCode2020/static/js/runtime-main.c8be9113.js.map",
     "static/js/2.aeb937e2.chunk.js": "/AdventOfCode2020/static/js/2.aeb937e2.chunk.js",
@@ -15,6 +15,7 @@
     "static/media/bakgrund.80bc4e98.jpg": "/AdventOfCode2020/static/media/bakgrund.80bc4e98.jpg",
     "static/media/input.1e915ddc.txt": "/AdventOfCode2020/static/media/input.1e915ddc.txt",
     "static/media/input.29d86635.txt": "/AdventOfCode2020/static/media/input.29d86635.txt",
+    "static/media/input.2cdc2e9f.txt": "/AdventOfCode2020/static/media/input.2cdc2e9f.txt",
     "static/media/input.32a515d4.txt": "/AdventOfCode2020/static/media/input.32a515d4.txt",
     "static/media/input.39c1f869.txt": "/AdventOfCode2020/static/media/input.39c1f869.txt",
     "static/media/input.4cd3b3be.txt": "/AdventOfCode2020/static/media/input.4cd3b3be.txt",
@@ -35,6 +36,6 @@
     "static/js/runtime-main.c8be9113.js",
     "static/js/2.aeb937e2.chunk.js",
     "static/css/main.23402394.chunk.css",
-    "static/js/main.37a0f3cc.chunk.js"
+    "static/js/main.8f2f12c9.chunk.js"
   ]
 }
