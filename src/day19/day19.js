@@ -80,8 +80,8 @@ export default function Day19(props) {
         function solve2(lines) {
             console.log('Solve 2');
             let [allRules, line] = readRules(lines);
-            allRules.set(8, [[42], [42, 8]]);
-            allRules.set(11, [[42, 31], [42, 11, 31]]); 
+            allRules.set(8, [[42, 8], [42]]);
+            allRules.set(11, [[42, 11, 31], [42, 31]]); 
 
             setSolution2(solve(lines, allRules, line));
         }
