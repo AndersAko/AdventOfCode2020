@@ -31,7 +31,7 @@ export default function Day8(props) {
                 executedLines.add(ip);
                 execute(statements[ip]);
                 if (executedLines.has(ip)) {
-                    console.log('Infinite loop detected in line ', ip);
+                    // console.log('Infinite loop detected in line ', ip);
                     return {status: 'InfiniteLoop', acc, ip };
                 };
             } while (ip < statements.length);

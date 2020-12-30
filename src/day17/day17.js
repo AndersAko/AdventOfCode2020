@@ -144,7 +144,7 @@ export default function Day17(props) {
             for (let i = 1; i<=6; i++) {
                 console.log(i + ' cycles');
                 cubes4.step();
-                cubes4.print();
+                // cubes4.print();
                 console.log(cubes4.countActive());
             }
             setSolution2(cubes4.countActive());

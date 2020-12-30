@@ -25,9 +25,10 @@ export default function Day15(props) {
                 number = lastSpoken ? turn - lastSpoken : 0;
                 spokenTurn.set(last, turn);
                 turn ++;
-                console.log(turn, number, last);
+                // console.log(turn, number, last);
                 last = number;
             }
+            console.log('Last spoken number: ', number);
             setSolution1(number);
         }
 

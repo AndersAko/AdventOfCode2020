@@ -14,8 +14,8 @@ export default function Day12(props) {
             for (let line of lines) {
                 let re = /(?<action>\w)(?<val>\d+)/;
                 let match = line.match(re);
-                if (match) console.log(match.groups['action'], match.groups['val']);
-                else console.log('no match on ', line)
+                // if (match) console.log(match.groups['action'], match.groups['val']);
+                // else console.log('no match on ', line)
                 let val = +match.groups['val'];
                 switch (match.groups['action']) {
                     case 'N':
@@ -49,7 +49,7 @@ export default function Day12(props) {
                     default:
                         console.log('Unknown action', match.groups['action']);
                 }
-                console.log('Position: ', pos, 'facing', dir);
+                // console.log('Position: ', pos, 'facing', dir);
             }
             setSolution1(Math.round(Math.abs(pos.x) + Math.abs(pos.y)));
         }
@@ -96,7 +96,7 @@ export default function Day12(props) {
                     default:
                         console.log('Unknown action', match.groups['action']);
                 }
-                console.log('Position: '+ pos + 'waypoint'+ dir);
+                // console.log('Position: ', pos, 'waypoint', dir);
             }
             setSolution2(Math.round(Math.abs(pos.x) + Math.abs(pos.y)));
         }

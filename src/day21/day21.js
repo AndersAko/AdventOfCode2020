@@ -75,7 +75,7 @@ export default function Day21(props) {
     
     return (
         <div>
-            <div className='solution' >
+            <div className='solution' style={{fontSize: '1vmin'}}>
                 <div>
                     <b>Day 21</b>
                     <br/>

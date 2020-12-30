@@ -24,7 +24,7 @@ export default function Day7(props) {
                 for (let innerBagText of rule.match(reOuterBag).groups['innerbags']?.split(',')) {
                     let innerBagMatch = innerBagText.match(reInnerBag);
                     if (!innerBagMatch) {
-                        console.log("Innerbag description didn't match, skipped", innerBagText);
+                        console.log("Innerbag description didn't match, skipped '", innerBagText, "'");
                         continue;
                     }
                     let innerBagNum = innerBagMatch.groups['num'];

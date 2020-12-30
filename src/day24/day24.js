@@ -83,8 +83,9 @@ export default function Day24(props) {
                     }
                 }
                 tiles = next;
-                console.log('Day '+day+' - Black tiles: '+Object.keys(next).reduce( (a,c) => a + next[c],0 ), next);
+                // console.log('Day '+day+' - Black tiles: '+Object.keys(next).reduce( (a,c) => a + next[c],0 ), next);
             }
+            console.log('Day 100: - Black tiles: '+Object.keys(tiles).reduce( (a,c) => a + tiles[c],0 ), tiles);
             setSolution2(Object.keys(tiles).reduce( (a,c) => a + (tiles[c]?1:0),0 ))
         }
 

@@ -55,7 +55,7 @@ export default function Day23(props) {
                 current = cups[current];
            }
            for (let i=1; i<=100; i++) {
-               console.log('Move '+i);
+            //    console.log('Move '+i);
                move();
             }
 
@@ -63,7 +63,7 @@ export default function Day23(props) {
 
             let answer = '';
             for (let c of getCups(cups, 1)) answer+=c;
-            console.log(answer.substr(1));
+            console.log('Answer: ', answer.substr(1));
             setSolution1(answer.substr(1));
         }
 
@@ -98,13 +98,12 @@ export default function Day23(props) {
                 current = cups[current];
            }
            for (let i=1; i<=10000000; i++) {
-               if (i%100000 === 0) console.log('Move '+i);
+               if (i%1000000 === 0) console.log('Move '+i);
                move();
             }
 
             print(cups, 'cups: ', current, 100);
-            console.log('Cup 1:');
-            print(cups, 'cups: ', 1, 3);
+            print(cups, 'Cups 1 to 3: ', 1, 3);
             setSolution2(cups[1]*cups[cups[1]]);
         }
 

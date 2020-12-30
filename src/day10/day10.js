@@ -28,9 +28,10 @@ export default function Day9(props) {
             console.log('Differences of 1: '+count1+', diff of 3: '+count3);
             setSolution1(count1*count3);
 
+            console.log('Solve 2');
             function combinationsFrom(tryIndex) {
                 if (cache[tryIndex]) {return cache[tryIndex];}
-                console.log('CombinationsFrom ', tryIndex, lines[tryIndex]);
+                // console.log('CombinationsFrom ', tryIndex, lines[tryIndex]);
                 let combinations = 0;
                 let tryValue = +lines[tryIndex];
                 for (let i = tryIndex+1; lines[i] <= tryValue+3 && i < lines.length; i++) {
